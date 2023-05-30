@@ -3,7 +3,7 @@
 
 
 Resources 
-* [U-net Model], (https://www.kaggle.com/code/hmendonca/u-net-model-with-submission)
+* [U-net Model](https://www.kaggle.com/code/hmendonca/u-net-model-with-submission)
 * https://www.slideshare.net/0xdata/dmitry-larko-h2oai-kaggle-airbus-ship-detection-challenge-h2o-world-san-francisco
 * https://github.com/jeffheaton/t81_558_deep_learning
 * https://github.com/bckenstler/CLR
