@@ -7,6 +7,9 @@ The goal of this challenge is to build a machine learning model to anaylze satel
 The solution was implemented by using the U-net architecture. Which is a convolutional neural network that operates by downsampling and encoding the information in the image and than later upsampling and decoding the collected information from the same image.
 
 ## Dependencies ##
+* Python 3.8.16
+* Tensorflow 2
+* Jupyter Notebook
 
 
 ## Resources ## 
