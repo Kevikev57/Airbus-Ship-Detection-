@@ -1,1 +1,22 @@
+tqdm==4.23.0
+pandas==0.22.0
+imageio==2.2.0
+pydot_ng==1.0.0
+opencv_python==4.2.0.32
+torch==0.3.1
+attrdict==2.0.0
+scipy==1.0.0
+scikit_image==0.13.1
+numpy==1.22.0
+imgaug==0.2.5
+neptune-cli
+ipython==7.16.3
+Pillow>=6.2.2
+pyyaml>=4.2b1
+Cython==0.28.2
+pycocotools==2.0.0
+steppy==0.1.14
+steppy-toolkit==0.1.12
+pretrainedmodels==0.7.0
+torchvision==0.2.0
 
