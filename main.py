@@ -71,4 +71,27 @@ In [3]: import os
         print(masks['ImageId'].value_counts().shape[0])
         masks.head()
         
+In [5]: fig, (ax1, ax2) = plt.subplots(1, 2, figsize = (10, 5))
+        rle_0 = masks.query('ImageId=="00021ddc3.jpg"')['EncodedPixels']
+        img_0 = masks_as_image(rle_0)
+        ax1.imshow(img_0[:, :, 0])
+        ax1.set_title('Image$_0$')
+        rle_1 = multi_rle_encode(img_0)
+        img_1 = masks_as_image(rle_1)
+        ax2.imshow(img_1[:, :, 0])
+        ax2.set_title('Image$_1$')
+        print('Check Decoding->Encoding',
+        'RLE_0:', len(rle_0), '->',
+        'RLE_1:', len(rle_1))
         
+In [6]: masks['ships'] = masks['EncodedPixels'].map(lambda c_row: 1 if isinstance(c_row, str) else 0)
+        unique_img_ids = masks.groupby('ImageId').agg({'ships': 'sum'}).reset_index()
+        unique_img_ids['has_ship'] = unique_img_ids['ships'].map(lambda x: 1.0 if x>0 else 0.0)
+        unique_img_ids['has_ship_vec'] = unique_img_ids['has_ship'].map(lambda x: [x])
+        # some files are too small/corrupt
+        unique_img_ids['file_size_kb'] = unique_img_ids['ImageId'].map(lambda c_img_id: os.stat(os.path.join(train_image_dir,c_img_id)).st_size/1024)
+        unique_img_ids = unique_img_ids[unique_img_ids['file_size_kb']>50] # keep only 50kb files
+        unique_img_ids['file_size_kb'].hist()
+        masks.drop(['ships'], axis=1, inplace=True)
+        unique_img_ids.sample(5)
+          
